@@ -14,6 +14,13 @@ namespace BusinessLogic
         {
             context = _context;
         }
+
+        public void Add(ItemCategory itemCategory)
+        {
+            context.ItemCategories.Add(itemCategory);
+            context.SaveChanges();
+        }
+
         public List<ItemCategory> GetItemCategories()
         {
             List<ItemCategory> itemCategories = null;

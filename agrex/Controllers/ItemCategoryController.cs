@@ -36,5 +36,11 @@ namespace agrex.Controllers
 
             return itemCategories;
         }
+
+        [HttpPut]
+        public void Add(ItemCategory itemCategory)
+        {
+            itemCategoryLogic.Add(itemCategory);
+        }
     }
 }

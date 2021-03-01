@@ -1,2 +1,5 @@
 **/appsettings.json
 .vs
+**/bin/**
+**/obj
+**/.DS_Store
