@@ -1,0 +1,19 @@
+﻿To get a list
+GET api/<name>/
+
+Single Object (id)
+GET api/<name>/{id}
+
+Object insert
+PUT api/<name>/
+We can include data
+
+Delete object
+DELETE api/<name>/{id}
+
+Update object
+POST api/<name>/
+We can include data
+
+
+

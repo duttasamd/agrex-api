@@ -33,6 +33,18 @@ namespace Data
                 .HasOne(p => p.ItemCategory)
                 .WithMany(x => x.ItemTypes)
                 .HasForeignKey(y => y.ItemCategoryId);
+
+            builder.Entity<Item>()
+                .HasIndex(x => x.Name).IsUnique();
+
+            builder.Entity<ItemType>()
+                .HasIndex(x => x.Name).IsUnique();
+
+            builder.Entity<ItemCategory>()
+                .HasIndex(x => x.Name).IsUnique();
+
+            builder.Entity<ItemSubType>()
+                .HasIndex(x => x.Name).IsUnique();
         }
     }
 }

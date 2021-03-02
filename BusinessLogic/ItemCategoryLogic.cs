@@ -17,6 +17,7 @@ namespace BusinessLogic
 
         public void Add(ItemCategory itemCategory)
         {
+            itemCategory.Id = Guid.NewGuid();
             context.ItemCategories.Add(itemCategory);
             context.SaveChanges();
         }
@@ -25,7 +26,11 @@ namespace BusinessLogic
         {
             List<ItemCategory> itemCategories = null;
 
-            itemCategories = context.ItemCategories.ToList();
+            itemCategories = context.ItemCategories
+                .Include(x => x.ItemTypes)
+                .ThenInclude(x => x.ItemSubTypes)
+                .ToList();
+
             return itemCategories;
         }
     }
