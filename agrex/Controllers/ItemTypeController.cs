@@ -20,14 +20,22 @@ namespace agrex.Controllers
         }
 
         [HttpGet]
-        public List<ItemType> Get()
+        public List<ItemType> List(Guid? itemCategoryId = null)
         {
             List<ItemType> itemTypes = null;
 
-            itemTypes = itemTypeLogic.Get();
+            if(itemCategoryId == null)
+            {
+                itemTypes = itemTypeLogic.List();
+            } else
+            {
+                itemTypes = itemTypeLogic.List(itemCategoryId.GetValueOrDefault());
+            }
+
 
             return itemTypes;
         }
+
 
         [HttpPut]
         public void Add(ItemType itemType)

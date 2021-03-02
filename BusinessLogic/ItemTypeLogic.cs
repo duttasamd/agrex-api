@@ -16,11 +16,20 @@ namespace BusinessLogic
         {
             this.context = context;
         }
-        public List<ItemType> Get()
+        public List<ItemType> List()
         {
             List<ItemType> itemTypes = null;
 
             itemTypes = context.ItemTypes.ToList();
+
+            return itemTypes;
+        }
+
+        public List<ItemType> List(Guid itemCategoryId)
+        {
+            List<ItemType> itemTypes = null;
+
+            itemTypes = context.ItemTypes.Where(x => x.ItemCategoryId == itemCategoryId).ToList();
 
             return itemTypes;
         }

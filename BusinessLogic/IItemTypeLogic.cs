@@ -1,4 +1,5 @@
 ﻿using Models;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessLogic
@@ -6,6 +7,7 @@ namespace BusinessLogic
     public interface IItemTypeLogic
     {
         void Add(ItemType itemType);
-        List<ItemType> Get();
+        List<ItemType> List();
+        public List<ItemType> List(Guid itemCategoryId);
     }
 }

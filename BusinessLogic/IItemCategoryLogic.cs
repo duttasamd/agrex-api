@@ -5,7 +5,7 @@ namespace BusinessLogic
 {
     public interface IItemCategoryLogic
     {
-        List<ItemCategory> GetItemCategories();
+        List<ItemCategory> List();
         void Add(ItemCategory itemCategory);
     }
 }

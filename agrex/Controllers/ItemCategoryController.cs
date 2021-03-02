@@ -25,11 +25,11 @@ namespace agrex.Controllers
         }
 
         [HttpGet]
-        public string GetItemCategories()
+        public string List()
         {
             List<ItemCategory> itemCategories = null;
 
-            itemCategories = itemCategoryLogic.GetItemCategories();
+            itemCategories = itemCategoryLogic.List();
 
             return JsonConvert.SerializeObject(itemCategories);
         }
