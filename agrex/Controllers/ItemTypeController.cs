@@ -1,7 +1,9 @@
 ﻿using BusinessLogic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace agrex.Controllers
 {
+    [EnableCors("AllowAll")]
     [Route("api/[controller]")]
     [ApiController]
     public class ItemTypeController : ControllerBase
@@ -20,7 +23,7 @@ namespace agrex.Controllers
         }
 
         [HttpGet]
-        public List<ItemType> List(Guid? itemCategoryId = null)
+        public string List(Guid? itemCategoryId = null)
         {
             List<ItemType> itemTypes = null;
 
@@ -33,7 +36,7 @@ namespace agrex.Controllers
             }
 
 
-            return itemTypes;
+            return JsonConvert.SerializeObject(itemTypes);
         }
 
 
